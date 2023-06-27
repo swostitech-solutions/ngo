@@ -1,0 +1,15 @@
+{% extends 'app1/base1.html'%}
+
+{% block title %}POST{% endblock%}
+
+{%block content%}
+
+{% for p in post %}
+<h3>{{p.title}}</h3>
+<img src="/media/{{p.image}}" class="responsive-img" alt="">
+{{p.content|safe}}
+{{p.current_date}}
+<a  href="{% url 'payment' %}">Donate</a>
+{% endfor %}
+
+{% endblock content %}

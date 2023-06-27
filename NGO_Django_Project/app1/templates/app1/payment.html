@@ -1,0 +1,40 @@
+{% extends 'app1/base1.html'%}
+{% load static %}
+
+{% block content %}
+<h1>Payment page</h1>
+<div>
+<form action="{% url 'payment' %}" method="POST" novalidate>
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" value="submit">
+    <br/> <br/> <br/>
+    {% if payment %}
+    <form action="{% url 'payment-status' %}" method="POST">
+        {% csrf_token %}
+    <script
+        src="https://checkout.razorpay.com/v1/checkout.js"
+        data-key="rzp_test_gqnLGb3poHpdSz"
+        data-amount="{{ payment.amount }}"
+        data-currency="{{ payment.currency }}"
+        data-order_id="{{ payment.id }}"
+        data-buttontext="Pay with Razorpay"
+        data-name="NGO"
+        data-description="Help for poor people"
+        data-image="https://example.com/your_logo.jpg"
+        data-prefill.name="{{ payment.name }}"
+        data-prefill.email="{{ payment.email }}"
+        data-theme.color="#F37254"
+    >
+    </script>
+        <input type="hidden" custom="Hidden Element" name="hidden">
+    </form>
+    {% endif %}
+</form>
+</div>
+
+
+
+{% endblock content%}
+
+

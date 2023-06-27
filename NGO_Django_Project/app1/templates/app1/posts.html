@@ -1,0 +1,78 @@
+{% extends 'app1/base1.html'%}
+
+{% block title %}POST{% endblock%}
+
+{%block content%}
+
+{% for p in post %}
+<h3>{{p.title}}</h3>
+<img src="/media/{{p.image}}" class="responsive-img" alt="">
+{{p.content|safe}}
+{{p.current_date}}
+<a class="nav-link" href="{% url 'payment' %}">Donate</a>
+{% endfor %}
+
+
+
+
+
+<!--<h3>{{post.title}}</h3>-->
+<!--&lt;!&ndash;<h3>{{post.title}}</h3>&ndash;&gt;-->
+<!--&lt;!&ndash;<h3>{{post.title}}</h3>&ndash;&gt;-->
+<!--<img src="/media/{{post.image}}" class="responsive-img" alt="">-->
+<!--<p>-->
+<!--    {{post.content|safe}}-->
+<!--</p>-->
+<!--<p>-->
+<!--    {{post.current_date}}-->
+<!--</p>-->
+<!--<a href="" class="btn bg-button">Donet</a>-->
+<!--<div class="container-custom">-->
+<!--    <div class="row">-->
+<!--        <div class="col s12 m10">-->
+<!--            <h3>{{post.title}}</h3>-->
+<!--            <p>{{post.cat.title}}</p>-->
+<!--            <img src="/media/{{post.image}}" class="responsive-img" alt="">-->
+<!--            <br>-->
+<!--            <p>-->
+<!--                {{post.content|safe}}-->
+<!--            </p>-->
+<!--            <p>-->
+<!--                {{post.current_date}}-->
+<!--            </p>-->
+<!--            <a href="" class="btn bg-button">Donet</a>-->
+<!--        </div>-->
+<!--        <div class="col s12 m2">-->
+<!--           {% for cat in cats %}-->
+<!--    <div class="card item" style="margin-left:5px;">-->
+<!--        <div class="img-container">-->
+<!--            <img src="/media/{{cat.image}}" class="responsive-img" alt="image">-->
+<!--        </div>-->
+<!--        <div class="card-content">-->
+<!--            <b >-->
+<!--                {{cat.title}}-->
+<!--            </b>-->
+<!--            <p class="truncate">{{cat.description}}</p>-->
+<!--            <div class="container center-align mt20">-->
+<!--            <a href="" class="btn bg-primary">View</a>-->
+<!--        </div>-->
+<!--        </div>-->
+
+
+<!--    </div>-->
+
+<!--    {% endfor %}-->
+<!--        </div>-->
+<!--        </div>-->
+
+
+<!--    </div>-->
+
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+
+
+
+
+{%endblock%}
